@@ -80,7 +80,7 @@ class _WebQrViewState extends State<WebQrView> {
 
     // video = html.VideoElement();
     WebQrView.vidDiv.children = [video];
-    // ignore: UNDEFINED_PREFIXED_NAME
+   // ignore: undefined_prefixed_name
     ui.platformViewRegistry
         .registerViewFactory(viewID, (int id) => WebQrView.vidDiv);
     // giving JavaScipt some time to process the DOM changes
