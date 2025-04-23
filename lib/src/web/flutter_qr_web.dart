@@ -80,6 +80,9 @@ class _WebQrViewState extends State<WebQrView> {
       viewID,
       (int id) => WebQrView.vidDiv,
     );
+
+    print('[QR Scanner Web] viewID: $viewID');
+    
     // giving JavaScipt some time to process the DOM changes
     Timer(const Duration(milliseconds: 500), () {
       start();
