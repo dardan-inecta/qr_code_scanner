@@ -6,7 +6,7 @@ import 'dart:html' as html;
 import 'dart:js_util';
 
 // ignore_for_file: avoid_web_libraries_in_flutter
-import 'dart:ui' as ui;
+import 'web_view_registry.dart';
 import 'package:flutter/material.dart';
 
 import '../../qr_code_scanner.dart';
@@ -76,7 +76,7 @@ class _WebQrViewState extends State<WebQrView> {
     // video = html.VideoElement();
     WebQrView.vidDiv.children = [video];
     // ignore: undefined_prefixed_name
-    ui.platformViewRegistry.registerViewFactory(
+    platformViewRegistry.registerViewFactory(
       viewID,
       (int id) => WebQrView.vidDiv,
     );
@@ -238,7 +238,7 @@ class _WebQrViewState extends State<WebQrView> {
     );
   }
 
-  void _setCanvasSize(ui.Size size) {
+  void _setCanvasSize(Size size) {
     setState(() {
       _size = size;
     });
