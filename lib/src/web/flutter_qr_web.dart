@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../qr_code_scanner.dart';
 import 'dart:ui' as ui;
-import 'package:flutter_web_plugins/flutter_web_plugins.dart' show registerViewFactory;
+import 'package:flutter_web_plugins/flutter_web_plugins.dart'; 
 import 'jsqr.dart';
 import 'media.dart';
 
