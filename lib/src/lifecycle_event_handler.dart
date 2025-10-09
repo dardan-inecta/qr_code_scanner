@@ -1,33 +1,20 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
-import 'package:flutter/widgets.dart';
-
-/// A class that helps to handle app lifecycle events.
 class LifecycleEventHandler extends WidgetsBindingObserver {
-  /// The constructor.
   LifecycleEventHandler({
-    required this.onResumed,
-    required this.onPaused,
+    required this.resumeCallBack,
   });
-
-  /// A callback that is called when the app is resumed.
-  final VoidCallback onResumed;
-
-  /// A callback that is called when the app is paused.
-  final VoidCallback onPaused;
-
+  late final AsyncCallback resumeCallBack;
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.resumed:
-        onResumed();
+        await resumeCallBack();
         break;
       case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
-      case AppLifecycleState.hidden: // Add this line
-        onPaused();
-        break;
     }
   }
 }
