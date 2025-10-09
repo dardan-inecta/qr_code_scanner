@@ -5,7 +5,7 @@ import 'dart:core';
 import 'dart:html' as html;
 import 'dart:js_util';
 import 'dart:ui' as ui;
-import 'dart:ui_web' as ui_web; // Import the necessary library
+import 'package:flutter_web_plugins/flutter_web_plugins.dart' as web_plugins;
 
 import 'package:flutter/material.dart';
 
@@ -84,7 +84,7 @@ class _WebQrViewState extends State<WebQrView> {
     // ignore: UNDEFINED_PREFIXED_NAME
     // registerViewFactory(viewID, (int id) => WebQrView.vidDiv); // This was the incorrect line
     // The line below is the correct way to register a view factory.
-    ui_web.platformViewRegistry.registerViewFactory(viewID, (int id) => WebQrView.vidDiv);
+    web_plugins.registerViewFactory(viewID, (int id) => WebQrView.vidDiv);
     // giving JavaScipt some time to process the DOM changes
     Timer(const Duration(milliseconds: 500), () {
       start();
