@@ -5,6 +5,7 @@ import 'dart:core';
 import 'dart:html' as html;
 import 'dart:js_util';
 import 'dart:ui' as ui;
+import 'dart:ui_web' as ui_web; // Import the necessary library
 
 import 'package:flutter/material.dart';
 
@@ -81,7 +82,9 @@ class _WebQrViewState extends State<WebQrView> {
     // video = html.VideoElement();
     WebQrView.vidDiv.children = [video];
     // ignore: UNDEFINED_PREFIXED_NAME
-    registerViewFactory(viewID, (int id) => WebQrView.vidDiv);
+    // registerViewFactory(viewID, (int id) => WebQrView.vidDiv); // This was the incorrect line
+    // The line below is the correct way to register a view factory.
+    ui_web.platformViewRegistry.registerViewFactory(viewID, (int id) => WebQrView.vidDiv);
     // giving JavaScipt some time to process the DOM changes
     Timer(const Duration(milliseconds: 500), () {
       start();
@@ -126,7 +129,7 @@ class _WebQrViewState extends State<WebQrView> {
       ));
       // dart style, not working properly:
       // var stream =
-      //     await html.window.navigator.mediaDevices.getUserMedia(constraints);
+      //      await html.window.navigator.mediaDevices.getUserMedia(constraints);
       // straight JS:
       if (_controller == null) {
         _controller = QRViewControllerWeb(this);
