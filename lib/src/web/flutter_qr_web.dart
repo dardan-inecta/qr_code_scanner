@@ -6,7 +6,6 @@ import 'dart:html' as html;
 import 'dart:js_util';
 
 // ignore_for_file: avoid_web_libraries_in_flutter
-import 'web_view_registry.dart';
 import 'package:flutter/material.dart';
 
 import '../../qr_code_scanner.dart';
