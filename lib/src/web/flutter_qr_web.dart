@@ -10,6 +10,7 @@ import 'web_view_registry.dart';
 import 'package:flutter/material.dart';
 
 import '../../qr_code_scanner.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart' as web_plugins;
 import 'jsqr.dart';
 import 'media.dart';
 
@@ -76,10 +77,10 @@ class _WebQrViewState extends State<WebQrView> {
     // video = html.VideoElement();
     WebQrView.vidDiv.children = [video];
     // ignore: undefined_prefixed_name
-    platformViewRegistry.registerViewFactory(
-      viewID,
-      (int id) => WebQrView.vidDiv,
-    );
+    web_plugins.registerViewFactory(
+  viewID,
+  (int id) => WebQrView.vidDiv,
+);
 
     print('[QR Scanner Web] viewID: $viewID');
     
